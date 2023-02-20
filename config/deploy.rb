@@ -4,6 +4,8 @@ lock "~> 3.17.1"
 set :application, "ukandablog"
 set :repo_url, "git@github.com:IBUNHABIBU/ukandablog.git"
 
+set :rbenv_type, :user
+set :rbenv_ruby, '3.0.1'
 # Deploy to the user's home directory
 set :deploy_to, "/home/deployer/#{fetch :application}"
 
@@ -12,7 +14,6 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bund
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :branch, ENV['BRANCH'] || 'dev'
-
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
 
