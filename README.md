@@ -150,6 +150,7 @@ Navigate to the project folder make sure Rspec is installed and then run the fol
 | `rubocop -a` | Fix all the lint errors automatically |
 | `bundle exec rspec` | Run rspec tests |
 | `EDITOR='code --wait' rails credentials:edit` | Edit credentials |
+| `bundle exec rails secret` | Generate secret key |
 
 <!-- ### How to play -->
 
@@ -215,3 +216,8 @@ Credits go to
 ## 📝 License
 
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
+
+
+mkdir /home/deployer/ukandablog
+
+nano  /home/deployer/ukandablog/.rbenv-vars
