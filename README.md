@@ -154,7 +154,6 @@ Navigate to the project folder make sure Rspec is installed and then run the fol
 
 <!-- ### How to play -->
 
-
 ### Challenges
 1. 
 
