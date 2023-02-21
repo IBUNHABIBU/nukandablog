@@ -151,7 +151,7 @@ Navigate to the project folder make sure Rspec is installed and then run the fol
 | `bundle exec rspec` | Run rspec tests |
 | `EDITOR='code --wait' rails credentials:edit` | Edit credentials |
 | `bundle exec rails secret` | Generate secret key |
-
+| `jobs` | List background jobs |
 <!-- ### How to play -->
 
 ### Challenges
@@ -216,7 +216,53 @@ Credits go to
 
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
 
+sudo nano /etc/nginx/sites-enabled/ukandablog
 
 mkdir /home/deployer/ukandablog
 
 nano  /home/deployer/ukandablog/.rbenv-vars
+
+less /home/deployer/ukandablog/current/log/production.log
+
+sudo less /var/log/nginx/error.log
+
+server {
+  listen 80;
+  listen [::]:80;
+
+  server_name _;
+  root /home/deployer/ukandablog/current/public;
+
+  passenger_enabled on;
+  passenger_app_env production;
+
+  location /cable {
+    passenger_app_group_name ukandablog_websocket;
+    passenger_force_max_concurrent_requests_per_process 0;
+  }
+
+  # Allow uploads up to 100MB in size
+  client_max_body_size 100m;
+
+  location ~ ^/(assets|packs) {
+    expires max;
+    gzip_static on;
+  }
+}
+
+DATABASE_URL=postgresql://postgres:PASSWORD@127.0.0.1/ukandablog
+
+RAILS_MASTER_KEY=75e39d33bccbf4b837b6438519e8347e
+SECRET_KEY_BASE=dbad64d6300a2cd45a857de6ee520a1446cd14c2d35724ea046d61085d3529146e14ec29af107c0680c8a27448dbfe15b28d8366ce1f485405a955e190069a50
+
+
+
+
+
+
+
+
+
+
+
+
