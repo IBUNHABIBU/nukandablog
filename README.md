@@ -225,6 +225,18 @@ nano  /home/deployer/ukandablog/.rbenv-vars
 less /home/deployer/ukandablog/current/log/production.log
 
 sudo less /var/log/nginx/error.log
+then type shift+G
+
+# error log passenger
+ Compilation successful. The logs are here:
+App 27127 output:      /tmp/passenger_native_support-yz1k6p.log
+/tmp/passenger-error-wMfM2O.html
+
+ /tmp/passenger-error-wMfM2O.html
+ /tmp/passenger-error-AFC3GR.html
+ /tmp/passenger-error-7DcUaz.html
+ /tmp/passenger-error-A95ZWE.html
+
 
 server {
   listen 80;
@@ -255,6 +267,8 @@ DATABASE_URL=postgresql://postgres:PASSWORD@127.0.0.1/ukandablog
 RAILS_MASTER_KEY=75e39d33bccbf4b837b6438519e8347e
 SECRET_KEY_BASE=dbad64d6300a2cd45a857de6ee520a1446cd14c2d35724ea046d61085d3529146e14ec29af107c0680c8a27448dbfe15b28d8366ce1f485405a955e190069a50
 
+
+Make sure the gem bundle is installed<    "summary" : "The application encountered the following error: Could not find sprockets-rails-3.4.2, pg-1.4.5
 
 
 
