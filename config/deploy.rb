@@ -2,7 +2,7 @@
 lock "~> 3.17.1"
 
 set :application, "ukandablog"
-set :repo_url, "https://github.com/IBUNHABIBU/ukandablog.git"
+set :repo_url, "git@github.com:IBUNHABIBU/ukandablog.git"
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deployer/#{fetch :application}"
