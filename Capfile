@@ -11,8 +11,6 @@ require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 
 
-set :rbenv_type, :user
-set :rbenv_ruby, '3.0.1'
 
 # Load the SCM plugin appropriate to your project:
 #
