@@ -261,13 +261,16 @@ server {
 
 DATABASE_URL=postgresql://postgres:PASSWORD@127.0.0.1/ukandablog
 
-RAILS_MASTER_KEY=75e39d33bccbf4b837b6438519e8347e
-SECRET_KEY_BASE=dbad64d6300a2cd45a857de6ee520a1446cd14c2d35724ea046d61085d3529146e14ec29af107c0680c8a27448dbfe15b28d8366ce1f485405a955e190069a50
+
 
 
 Make sure the gem bundle is installed<    "summary" : "The application encountered the following error: Could not find sprockets-rails-3.4.2, pg-1.4.5
 
 
+# Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
+secret_key_base: 474937fc52a30cc5fbeebea8dd9ac15d8b7ee4693197c0ef921a8af57b6c17035d914f4a3e795ac22d4347e926ff5b00de545778c8be84f2de9eaa7496f9c490
+
+masterkey: b1be22677a49949ea995f84b8f5c233f
 
 
 
