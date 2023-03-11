@@ -223,8 +223,8 @@ mkdir /home/deployer/ukandablog
 nano  /home/deployer/ukandablog/.rbenv-vars
 
 less /home/deployer/ukandablog/current/log/production.log
-
 sudo less /var/log/nginx/error.log
+
 then type shift+G
 
 # error log passenger
@@ -232,10 +232,7 @@ then type shift+G
 App 27127 output:      /tmp/passenger_native_support-yz1k6p.log
 /tmp/passenger-error-wMfM2O.html
 
- /tmp/passenger-error-wMfM2O.html
- /tmp/passenger-error-AFC3GR.html
- /tmp/passenger-error-7DcUaz.html
- /tmp/passenger-error-A95ZWE.html
+ /tmp/passenger-error-gsn7n2.html
 
 
 server {
