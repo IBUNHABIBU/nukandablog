@@ -268,9 +268,7 @@ Make sure the gem bundle is installed<    "summary" : "The application encounter
 
 
 # Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
-secret_key_base: 474937fc52a30cc5fbeebea8dd9ac15d8b7ee4693197c0ef921a8af57b6c17035d914f4a3e795ac22d4347e926ff5b00de545778c8be84f2de9eaa7496f9c490
 
-masterkey: b1be22677a49949ea995f84b8f5c233f
 
 
 
