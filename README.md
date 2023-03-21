@@ -216,14 +216,23 @@ Credits go to
 
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
 
-sudo nano /etc/nginx/sites-enabled/ukandablog
+## Error logs
 
-mkdir /home/deployer/ukandablog
+`sudo nano /etc/nginx/sites-enabled/ukandablog`
 
-nano  /home/deployer/ukandablog/.rbenv-vars
+`mkdir /home/deployer/ukandablog`
 
-less /home/deployer/ukandablog/current/log/production.log
-sudo less /var/log/nginx/error.log
+`nano  /home/deployer/ukandablog/.rbenv-vars`
+
+`less /home/deployer/ukandablog/current/log/production.log`
+`sudo less /var/log/nginx/error.log`
+`sudo tail -f /var/log/nginx/access.log`
+`sudo tail -f /var/log/nginx/error.log``
+
+ You can also check the Passenger logs by running the following command in your Rails application directory:
+
+ `tail -f log/production.log`
+
 
 then type shift+G
 
