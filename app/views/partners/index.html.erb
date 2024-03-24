@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Partners</h1>
+
+<div id="partners">
+  <div class="row">
+    <% @partners.each do |partner| %>
+      
+      <div class="desktop-3 tab-port-6 tab-land-6 phone-4">
+          <%= render partner %>
+          <p>
+            <%= link_to "Show this partner", partner, class:"btn btn--dash" %>
+          </p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "New partner", new_partner_path %>

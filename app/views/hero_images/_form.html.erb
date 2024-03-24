@@ -1,0 +1,14 @@
+<div class="form form--mid">
+  <div class="form__container">
+  <h2>New Home images</h2>
+    <%= form_for(@hero_image) do |f| %>
+      <%= render 'shared/errors', object: @hero_image %>
+      <div class="input-box">
+        <%= f.file_field :images, multiple: true, required: "required" %>
+        <span>Upload Image</span>
+        <i></i>
+      </div>
+      <%= f.submit "Upload", class: "btn btn--mid" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div id="<%= dom_id hero_image %>">
+
+    <div class="row">
+        <% hero_image.images.each do |image| %>
+            <div class="tab-port-12 tab-land-12 phone-12 desktop-3">
+              <%= image_tag image, class: "slider__img" %>
+            </div>
+        <% end %>
+    </div>
+
+</div>

@@ -1,0 +1,7 @@
+
+<%= render @hero_image %>
+<strong> Created by <%= @hero_image.user.email %> </strong>
+<div>
+
+  <%= button_to "Delete images", @hero_image, method: :delete, class: "btn--dash" %>
+</div>

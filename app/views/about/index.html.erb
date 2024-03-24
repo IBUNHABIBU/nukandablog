@@ -1,0 +1,39 @@
+<div class="about">
+    <div class="about__header">
+        <h6>We provide the best services. Need help?</h6>
+        <h1>About Us</h1>
+        <p>Trust, Integrity, Punctuality, Quality, to be Open, to be Kind, to be Role Model</p>
+    </div>
+    <div class="about__content">
+       <div class="row">
+           <div class="desktop-6 phone-12 tab-port-12">
+                <div class="about_text">
+                    <h5>We are increasing bussiness success with the technology</h5>
+                        <p>KAMICH Technologies Limited is a private company headquartered in Dar es Salaam, Tanzania. The company deals with Electrical, Electronics,
+                        Information Technology and Fiber Optic services. The company aims at serving individuals,
+                        private corporates and government entities</p>
+                        <p>We are essential to our customers by providing the best products and 
+                        services to help them achieve their aspirations.</p>
+
+                        <p>Our mission is to be one of the leading suppliers of Electrical, Electronic, Information Technology and Optic Fiber Products/services.
+
+Enlarging the business by varying our range of products, services and field of operation.</p>
+
+<p>We seek to survive market conditions and contribute immensely to the economic growth of the country.</p>
+
+                </div>
+           </div>
+            <div class="desktop-6 phone-12 tab-port-6">
+                <div class="about_images">
+                    <% @hero_images.each do |hero_image| %>
+                        <% images = hero_image.images.limit(2) %>
+                        <% images.each do |image| %>
+                            <%= image_tag image, class: "about__img" %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+       </div>
+    </div>
+
+</div>

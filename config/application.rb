@@ -18,5 +18,7 @@ module Railstarter
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # Add this line at the top of your Ruby script or in your application configuration
+    $VERBOSE = nil
   end
 end

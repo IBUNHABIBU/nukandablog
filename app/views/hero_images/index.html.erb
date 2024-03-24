@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Hero images</h1>
+
+<div id="hero_images">
+  <% @hero_images.each do |hero_image| %>
+      <%= render hero_image %>
+      <p>
+        <%= link_to "Show Details", hero_image, class: "btn--dash" %>
+      </p>
+        <% end %>
+</div>
+
+<%= link_to "New hero image", new_hero_image_path, class: "btn" %>

@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Railstarter</title>
+    <title>Kamich Technologies</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="KAMICH Technologies Limited is a private company headquartered in Dar es Salaam, Tanzania. The company deals with Electrical, Electronics,
+     Information Technology and Fiber Optic services. The company aims at serving individuals,
+     private corporates and government entities.">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", media: 'all', "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <%= render 'layouts/header/nav' %>
     <%= render 'layouts/flashes' %>
-    <div class="container">
       <%= yield %>
-    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

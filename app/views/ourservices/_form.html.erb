@@ -1,0 +1,27 @@
+<div class="form form--mid">
+  <div class="form__container">
+  <h2>Add service</h2>
+<%= form_with(model: ourservice) do |form| %>
+    <%= render "shared/errors", object: ourservice %>
+    
+  <div class="input-box">
+    <%= form.text_field :Title, required: "required" %>
+    <span>Title</span>
+    <i></i>
+  </div>
+
+  <div class="input-box">
+    <%= form.text_field :description, required: "required" %>
+    <span>Description</span>
+    <i></i>
+  </div>
+
+  <div class="input-box">
+    <%= form.file_field :image, required: "required" %>
+    <span>Upload Image</span>
+    <i></i>
+  </div>
+      <%= form.submit "Upload", class: "btn btn--mid" %>
+<% end %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="form form--mid">
+  <div class="form__container">
+  <h2>Add project</h2>
+<%= form_with(model: project) do |form| %>
+  <%= render "shared/errors", object: project %>
+
+  <div class="input-box">
+      <%= form.text_field :title, required: "required" %>
+      <span>Title</span>
+      <i></i>
+  </div>
+
+  <div class="input-box">
+      <%= form.text_field :description, required: "required" %>
+      <span>Description</span>
+      <i></i>
+  </div>
+  <div class="input-box">
+  <%= form.file_field :image, required: "required" %>
+
+</div>
+<%= form.submit "Create", class: "btn btn--mid" %>
+<% end %>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+.banner {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    @include respond(phone) {
+        height: 70vh;
+    }
+
+    .overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+    }
+
+    &__text {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            color: $color-text-header;
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            color: white;
+            font-size: 1.0rem;
+            text-align: center;
+            margin: 0.4rem ;
+            padding: 0;
+        }
+    }
+  
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: zoom 30s infinite;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    @keyframes zoom {
+        0% {
+            transform: scale(1.3);
+        }
+
+        25% {
+            transform: scale(1.0);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+
+        75% {
+            transform: scale(1.0);
+        }
+
+        100% {
+            transform: scale(1.3);
+        }
+    }
+}

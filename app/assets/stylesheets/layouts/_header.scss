@@ -1,177 +1,229 @@
 .header {
-    background-color: var(--color-header-bg);
     position: relative;
     max-width: 100vw;
     margin-left: 0 auto;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 2rem;
+    flex-direction: column;
     z-index: 1;
 
-    &__logo {
-        font-size: var(--font-size-xl);
+    &__top {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        color: black;
+        font-size: $font-size-xl;
+
+        @include respond(phone) {
+            padding-top: 1rem;
+            padding-bottom: 0;
+        }
     }
+
+    &__logo {
+        margin: 0;
+        padding: 0;
+    }
+
+    &__icons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        color: black;
+
+        a {
+            background-color: #555;
+            display: inline-block;
+            padding: 0.4rem;
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 50%;
+
+            i {
+                margin: 0.3rem;
+            }
+        }
+    }
+
+    &__btn {
+        display: none;
+
+        @include respond(phone) {
+            display: flex;
+        }
+
+        @include respond(tab-port) {
+            display: flex;
+        }
+        .button {
+            position: relative;
+            &,
+            &::after, 
+            &::before {
+            width: 3rem;
+            height: 0.24rem;
+            background-color: red;
+            display: inline-block;
+            transition: all 0.5s ease-in-out;
+            }
+            &::after,
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+            }
+    
+            &::before {
+                top: -0.7rem;
+            }
+    
+            &::after {
+                top: 0.7rem;
+            }
+
+        }
+
+        .button.open {
+            background-color: transparent;
+            &::before {
+                top: 0;
+                transform: rotate(135deg);
+            }
+    
+            &::after {
+                top: 0;
+                transform: rotate(-135deg);
+            } 
+        }
+    }
+
     ul {
         list-style: none;
+        background-color: $main-color;
         
         li {
-            padding: var(--space-xs) var(--space-m);
-            transition: background 0.3s ease-in-out;
+            padding: $space-xs $space-m;
+            transition: background 0.6s ease-in-out;
 
             &:hover {
-                background-color: var(--color-primary-rotate);
+                background-color: $color-tertiary;
             }
         }
     }
 
-    .mega {
-        &:hover {
-            .mega-menu {
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-    }
 
-    .mega-menu {
-        position: absolute;
-        left: 0;
-        width: 80vw;
-        top: 80px;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease-in-out;
-       
-        .content {
-            background-color: var(--color-header-bg);
-            padding: var(--space-xs);
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-m);
-            width: 100%;
-            justify-content: space-between;
-
-            .col {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                line-height: var(--space-xxxl);
-
-                h2 {
-                    color: var(--color-primary-rotate);
-                    font-size: var(--font-size-xxl);
-                    line-height: var(--space-xxxl);
-                    font-weight: bold;
-                }
-
-                p {
-                    line-height: var(--line-height-headers);
-                }
-
-                .read-more {
-                    color: var(--color-text-section);
-                    font-size: var(--font-size-m);
-                    font-weight: bold;
-
-                    &:hover {
-                        color: var(--color-primary-rotate);
-                    }
-                }
-
-                section {
-              
-                    .image-wrapper {
-                    display: block;
-                    position: relative;
-                    width: 100%;
-                    height: 20vh;
-                    overflow: hidden;
-
-                    &:hover {
-                        img {
-                            transform: scale(1.1);
-                        }
-                    }
-
-                    .img {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-                    img {
-                        width: 100%;
-                        transition: transform 0.3s ease-in-out;
-                    }
-                }
-                }
-
-                .mega-links {
-                    border-left: 1px solid var(--color-text-header);
-
-                    li, a {
-                        padding: 0 1rem;
-                    }
-                }
-            }
-        }
-    }
     &__menu {
         display: flex;
         align-items: center;
+        @include respond(phone) {
+            // Display: none; allows no transition at all
+            // instead use opacity:0;
+            opacity: 0%;
+            // make it unaccessible to mouce and keyboard
+            // pointer-events: none;
 
-        .f-size {
-            font-size: 1rem;
-            font-weight: bolder;
-            color: green;
+            //hide it from screen reader
+            // visibility: hidden;
+            transform: translate(100%, -100%);
+            position: absolute;
+            left: 0;
+            flex-direction: column;
+            width: 100%;
+            transition: all 0.5s ease-in-out;
+        }
+
+        @include respond(tab-port) {
+            // Display: none; allows no transition at all
+            // instead use opacity:0;
+            opacity: 0%;
+            // make it unaccessible to mouce and keyboard
+            // pointer-events: none;
+
+            //hide it from screen reader
+            // visibility: hidden;
+            transform: translate(100%, -100%);
+            position: absolute;
+            left: 0;
+            flex-direction: column;
+            width: 100%;
+            transition: all 0.5s ease-in-out;
         }
         &__item {
             display: flex;
             justify-content: space-between;
             width: 100%;
-        }
-        .dropdown {
-            position: relative;
-            
-            &:hover {
-                .dropdown-menu {
-                    top: 34px;
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
-            .menu-right {
-                top: 0;
-                left: 100%;
-            }
-        }
-        .dropdown-menu, .menu-right {
-            position: absolute;
-            background-color: var(--color-header-bg);
+           @include respond(phone) {
             width: 100%;
-            top: 50%;
-            left: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease-in-out;
+           }
+
+           @include respond(tab-port) {
+            width: 100%;
+           }
         }
-        .dropdown-right {
-            &:hover {
-                .menu-right {
-                    top: 34px;
-                    opacity: 1;
-                    visibility: visible;
-                }
-            }
-        }
+  
     }
     a {
         text-decoration: none;
-        color: var(--color-white);
+        color: $color-white;
+        font-size: $font-size-xs;
+    }
+}
+
+.btn-mobile-nav {
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: none;
+
+    @include respond(phone) {
+        display: block;
+    }
+
+    @include respond(tab-port) {
+        display: block;
+    }
+
+}
+
+.nav-open .header__menu {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.nav-open .fa-xmark {
+    display: block;
+}
+
+.nav-open .fa-bars {
+    display: none;
+}
+
+.fa-xmark, .fa-bars {
+    color: #555;
+}
+
+.fa-xmark {
+    display: none;
+}
+
+nav {
+    position: relative;
+}
+
+.menu-container {
+    padding-left: 3rem;
+}
+
+.fa-facebook, .fa-twitter {
+    color: #959595;
+    font-size: 1.5rem;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        color: #333;
+        font-size: 1.6rem;
     }
 }
 

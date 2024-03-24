@@ -1,4 +1,117 @@
 <section class="section">
-    <h1>Mega Menu and Multilevel dropdown menu</h1>
+    <%= render 'slider' %>
+    <div class="message">
+        <h6>
+        The best technology company in Tanzania excels in innovation, offering cutting-edge solutions tailored to local needs.</h6>
+        <%= button_to 'Inquire Now', contact_us_path, method: :get, class:"btn btn--mob" %>
+    </div>
 </section>
 
+<div class="service" id='service'>
+    <h4>OUR SERVICES</h4>
+    <div class="row">
+    <% @ourservices.each do |service| %>
+        <div class="desktop-4 tab-port-6 tab-land-6 phone-12">
+        
+            <div class="service__item">
+            <%= link_to ourservices_path do %>
+                <%= image_tag service.image, class: "service__img" %>
+                <div class="service__content">
+                    <h5 class="service__title">
+                        <%= service.Title %>
+                    </h5>
+                    <p class="service__desc"><%= service.description %></p>
+                </div>
+            <% end %>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>
+
+<section class="why">
+    <h1 class='why__title'>Why us</h1>
+    <div class="row ">
+        <div class="desktop-4 tab-port-2 tab-land-2 phone-12">
+            <div class="why__card">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <div class="content">
+                    <h4>WE GOT THE TOOLS</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur
+                     adipisicing elit.
+                     Repudiandae fugiat consectetur officiis
+                      impedit
+                     temporibus eligendi. Reprehenderit!</p>
+                </div>
+            </div>
+        </div>
+        <div class="desktop-4 tab-port-2 tab-land-2 phone-12">
+            <div class="why__card">
+            <i class="fa-solid fa-money-check-dollar"></i>
+                <div class="content">
+                    <h4>COMPETITIVE PRICE</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Repudiandae fugiat consectetur officiis impedit
+                     temporibus eligendi. Reprehenderit!</p>
+                </div>
+            </div>
+        </div>
+        <div class="desktop-4 tab-port-2 tab-land-2 phone-12">
+            <div class="why__card">
+            <i class="fa-solid fa-business-time"></i>
+                <div class="content">
+                    <h4>MORE YEARS OF EXPERINCE</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Repudiandae fugiat consectetur officiis impedit
+                     temporibus eligendi. Reprehenderit!</p>
+                </div>
+            </div>
+        </div>
+        <div class="desktop-4 tab-port-2 tab-land-2 phone-12">
+            <div class="why__card">
+            <i class="fa-solid fa-phone-volume"></i>
+                <div class="content">
+                    <h4>Great Support</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Repudiandae fugiat consectetur officiis impedit
+                     temporibus eligendi. Reprehenderit!</p>
+                </div>
+            </div>
+        </div>
+        <div class="desktop-4 tab-port-2 tab-land-2 phone-12">
+            <div class="why__card">
+            <i class="fa-solid fa-medal"></i>
+                <div class="content">
+                    <h4> Quality Meets Assurance</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Repudiandae fugiat consectetur officiis impedit
+                     temporibus eligendi. Reprehenderit!</p>
+                </div>
+            </div>
+        </div>
+        <div class="desktop-4 tab-port-2 tab-land-2 phone-12">
+            <div class="why__card">
+                <i class="fa-solid fa-truck-fast"></i>
+                <div class="content">
+                    <h4>Fast response</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Repudiandae fugiat consectetur officiis impedit
+                     temporibus eligendi. Reprehenderit!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="partners">
+    <h4>OUR PARTNERS</h4>
+    <div class="row">
+    <% @partners.each do |partner| %>
+        <div class="desktop-3 tab-port-6 tab-land-6 phone-4">
+            <div class="partners__item">
+                <%= image_tag partner.image, class: "partners__img" %>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</section>

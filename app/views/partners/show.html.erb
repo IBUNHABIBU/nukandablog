@@ -1,0 +1,9 @@
+<div class="show-container">
+  <%= render @partner %>
+  <% if current_user %>
+      <div>
+          <%= link_to "Back to partners", partners_path, class: "btn" %>
+          <%= button_to "Delete", @partner, method: :delete, class: "btn--dash" %>
+      </div>
+  <% end %>
+</div>

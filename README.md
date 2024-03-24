@@ -55,6 +55,8 @@ It has all the features that I need to build a rails project
 
 - [] Clean code, dry, BEM, SASS, loop
 - [x] Mega Menu, footer, sidebar
+- [] Toast notification using hotwire
+- [] site map, geolocation, google navigator etc
 - [x] Responsive design
 - [] Search
 - [] Pagination
@@ -71,6 +73,9 @@ It has all the features that I need to build a rails project
 - [] Upload video
 - [x] Upload audio
 - [x] Upload file
+- [] Well documented Gem file and readme file
+- [] Charts and graph
+- [] Hotwire
 
 ### Api end points
 
@@ -148,34 +153,59 @@ Navigate to the project folder make sure Rspec is installed and then run the fol
 | `rails db:migrate` | Database migration |
 | `rails server` | start the server |
 | `rubocop -a` | Fix all the lint errors automatically |
-| `bundle exec rspec` | Run rspec tests |
+| `bundle exec rspec` | Run all rspec tests |
+| `rspec spec/requests --format documentation` | Run all rspec tests well formated |
+| `rspec spec/requests --format doc` | Run all rspec tests well formated |
+| `rspec spec/requests -f d` | Run all rspec tests well formated |
+| `rspec spec/foldername/file_name_spec.rb` | Run rspec tests for a specific file |
 | `EDITOR='code --wait' rails credentials:edit` | Edit credentials |
-| `bundle exec rails secret` | Generate secret key |
-| `jobs` | List background jobs |
+
 <!-- ### How to play -->
+secret_key_base: a695950e10660b4b4d2593e66174883b929790c0c9ef4e8532d64e4878d1ae85a0089d0059bab3e854f015ac9a142c27e0dcaba31b4a8ce17e49eb2c5bc24e99
+
 
 ### Challenges
 1. 
 
-![screenshot](https://github.com/IBUNHABIBU/car-rent-booking-api/blob/dev/app/assets/Errors.PNG)
-      solution
+It seems like you're encountering an error related to SSH key authentication with the ed25519 key type in your Ruby application. The error message indicates that the ed25519 gem is missing, which is required for ssh-ed25519 support in net-ssh.
+Solution 
 
-      bundle config --delete bin
+add 
+gem 'ed25519', '>= 1.2', '< 2.0'
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
-      bundle install --binstubs
-<!-- CONTACT -->
-
-2. Upload image in local was working but not in production
-
-it causes the error undefined cars for nil class
+2. 
+You have already activated uri 0.12.1, but your Gemfile requires uri 0.13.0. Prepending `bundle exec` to your command may solve this.
 
 Solution
-I removed the association btn user model and car model
-so instead of @car = current_user.cars.build(car_params)  I used @car = Car.new(car_params)
 
-3. Another cause of blocked by cors
+I removed the uri '0.12.1' in the vps using command 
 
-setting enviroment variables in heroku I used heroku config:set RAILS_MASTER_KEY = 'cat config/master.key' insead of using the backticks ``
+`gem list uri`
+gem list -d uri
+gem uninstall uri
+gem install uri -v '0.13.0'
+
+2.   01 rake aborted!
+      01 ActiveSupport::MessageEncryptor::InvalidMessage: ActiveSupport::MessageEncryptor::InvalidMessage
+
+      Solution
+
+      I deleted the credentials.yml.enc
+      and then I created again using the command `EDITOR='code --wait' rails credentias:edit`
+
+3. DEBUG [a7255b43] 	rake aborted!
+ DEBUG [a7255b43] 	ActiveRecord::NoDatabaseError: We could not find your database: kamich. Which can be found in the database configuration file located at config/database.yml.
+
+ solution
+
+ I created the database in the vps using the sql commands
+
+ when doing display none transision will not work
+ 
+ `CREATE DATABASE kamich`;
+
+
 
 ## Live link
 
@@ -216,46 +246,17 @@ Credits go to
 
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
 
-## Error logs
-
-`sudo nano /etc/nginx/sites-enabled/ukandablog`
-
-`mkdir /home/deployer/ukandablog`
-
-`nano  /home/deployer/ukandablog/.rbenv-vars`
-
-`less /home/deployer/ukandablog/current/log/production.log`
-`sudo less /var/log/nginx/error.log`
-`sudo tail -f /var/log/nginx/access.log`
-`sudo tail -f /var/log/nginx/error.log``
-
- You can also check the Passenger logs by running the following command in your Rails application directory:
-
- `tail -f log/production.log`
-
-
-then type shift+G
-
-# error log passenger
- Compilation successful. The logs are here:
-App 27127 output:      /tmp/passenger_native_support-yz1k6p.log
-/tmp/passenger-error-wMfM2O.html
-
- /tmp/passenger-error-gsn7n2.html
-
 
 server {
-  listen 80;
-  listen [::]:80;
 
-  server_name _;
-  root /home/deployer/ukandablog/current/public;
+  server_name kamich.darlive.cyou www.kamich.darlive.cyou;
+  root /home/deploy/colabapi/current/public;
 
   passenger_enabled on;
   passenger_app_env production;
 
   location /cable {
-    passenger_app_group_name ukandablog_websocket;
+    passenger_app_group_name colabapi_websocket;
     passenger_force_max_concurrent_requests_per_process 0;
   }
 
@@ -266,24 +267,13 @@ server {
     expires max;
     gzip_static on;
   }
-}
 
-DATABASE_URL=postgresql://postgres:PASSWORD@127.0.0.1/ukandablog
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/colabapi.darlive.cyou/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/colabapi.darlive.cyou/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 
+## toast notification 
 
-
-
-Make sure the gem bundle is installed<    "summary" : "The application encountered the following error: Could not find sprockets-rails-3.4.2, pg-1.4.5
-
-
-# Used as the base secret for all MessageVerifiers in Rails, including the one protecting cookies.
-
-
-
-
-
-
-
-
-
-
+    https://bbbootstrap.com/snippets/toast-notification-close-button-27153346

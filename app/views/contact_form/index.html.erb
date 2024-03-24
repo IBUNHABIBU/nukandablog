@@ -1,0 +1,51 @@
+<h1 class="contact-header">Get in touch</h1>
+
+<div class="contact-container">
+  <div class="contact-form">
+  <%= form_for(@message, url: contact_form_create_path, method: :post, html: { class: "fm" }) do |form|%>
+     
+      <%= render "shared/errors", object: @message %>
+      
+      <div class="form__field">
+        <%= form.label :name, class: "form__label" %>
+        <%= form.text_field :name, required: true, class: "form__input" %>
+      </div>
+
+      <div class="form__field">
+        <%= form.label :email, class: "form__label" %>
+        <%= form.email_field :email, required: true, class: "form__input" %>
+      </div>
+
+      <div class="form__field">
+        <%= form.label :subject, class: "form__label" %>
+        <%= form.text_field :subject, required: true, class: "form__input" %>
+      </div>
+
+      <div class="form__field">
+        <%= form.label :body, class: "form__label" %>
+        <%= form.text_area :body, required: true, class: "form__textarea" %>
+      </div>
+
+      <div class="form__actions">
+        <%= form.submit "Send Message", class: "form__submit" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="contact-address">
+    <p class="contact-address__info">
+      Other ways to contact us<br>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.<br>
+      <strong>Address:</strong><br>
+      10800 Kibaha, Pwani<br>
+      Pich ya ndege, Tanzania<br><br>
+      <strong>Contact:</strong><br>
+            info@kamich-technologies.co.tz<br>
+      555-3587 347<br><br>
+      <strong>Opening Hours:</strong><br>
+      Mo-Fr: 8:00-19:00<br>
+      Sa: 8:00-14:00<br>
+      So: closed
+    </p>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="service" id='service'>
+    <h1>OUR SERVICES</h1>
+    <div class="row">
+    <% @ourservices.each do |service| %>
+        <div class="desktop-4 tab-port-6 tab-land-6 phone-12">
+            <div class="service__item">
+            <%= link_to ourservice_path(service) do %>
+                    <%= image_tag service.image, class: "service__img" %>
+                <div class="service__content">
+                    <h5 class="service__title">
+                        <%= service.Title %>
+                    </h5>
+                    <p class="service__desc"><%= service.description %></p>
+                </div>
+            <% end %>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>

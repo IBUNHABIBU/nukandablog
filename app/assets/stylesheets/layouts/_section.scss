@@ -1,20 +1,141 @@
 .section {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-bg-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
 
     h1 {
-        font-family: var(--font-family-titillium);
         font-weight: 700;
-        line-height: var(--line-height-body);
-        color: var(--color-text-section);
+        line-height: $line-height-body;
+        color: $color-text-section;
         text-transform: uppercase;
     }
+
+    .message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: $space-m;
+        padding: $space-m;
+        background-color: $main-color;
+
+        @include respond(phone) {
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        @include respond(tab-port) {
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        @include respond(tab-land) {
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        h6 {
+            color: white;
+            font-size: $font-size-h6;
+        }
+
+        .btn--mob {
+            @include respond(phone) {
+                align-self: flex-end;
+            }
+
+            @include respond(tab-land) {
+                align-self: flex-end;
+            }
+
+             @include respond(tab-land) {
+                align-self: flex-end;
+            }
+        }
+    }
+}
+
+.why {
+    text-align: center;
+    background-image: linear-gradient(to right bottom, rgba(51, 51, 51, 0.622), rgba(34, 34, 34, 0.676), rgba(85, 85, 84, 0.776)), url('./techbg.jpg');
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    &__title {
+        text-transform: uppercase;
+        font-size: $font-size-h6;
+        color: white;
+        padding-bottom: 1rem;
+        border-bottom: 0.2rem solid goldenrod;
+        letter-spacing: 0.5rem;
+        padding-top: 2rem;
+        width: fit-content;
+        margin-bottom: 2rem;
+    }
+
+    &__card {
+        display: flex;
+        margin: 1rem;
+        gap: 1rem;
+
+        .fa-screwdriver-wrench, .fa-truck-fast,
+        .fa-medal, .fa-phone-volume, .fa-business-time,
+        .fa-money-check-dollar
+         {
+            display: inline-block; 
+            border: 1px solid #888; 
+            border-radius: 50%; 
+            font-size: 2rem;
+            padding: 2rem; 
+        }
+
+        h4 {
+            color: white;
+            font-size: $font-size-h6;
+        }
+
+        .content {
+            text-align: left;
+
+            p {
+                font-size: 0.9rem;
+                line-height: 1.2;
+                margin-top: 1rem;
+            }
+        }
+    }
+}
+
+.partners {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+
+    h4 {
+        color: #333;
+        margin: 2rem;
+        font-size: $font-size-h6;
+        border-bottom: 0.28rem solid goldenrod;
+        width: fit-content;
+        padding-bottom: 1.2rem;
+    }
+
+    &__item {
+        border: 0.5px solid rgba(136, 136, 136, 0.272);
+        height: 12rem;  
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.show-container {
+    height: 100vh;
+    display: flex;
+    width: 50%;
 }

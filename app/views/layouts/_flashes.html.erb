@@ -1,3 +1,13 @@
 <% flash.each do |key, value|  %>
-  <%= content_tag(:p, value, :class => "flash #{key}") %>
+  <div class="wrapper" data-controller="toast">
+    <div class="toast <%= key == "notice" ? "success": "error" %>">
+        <div class="outer-container">
+        <i class="fa-solid <%= key== "notice" ? "fa-circle-check" : "fa-circle-xmark" %>"></i>
+        </div>
+        <div class="inner-container">          
+          <%= content_tag(:p, value, :class => "flash #{key}") %>
+        </div>
+        <button data-action="click->toast#hide">&times;</button>
+    </div>
+  </div>
 <% end %>
